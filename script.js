@@ -262,8 +262,8 @@ document.addEventListener('DOMContentLoaded', () => {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${apiKey}`,
-                "HTTP-Referer": window.location.href, // Optional, for OpenRouter rankings
-                "X-Title": "CropMind AI", // Optional
+                "HTTP-Referer": window.location.origin === 'null' ? 'https://cropmind-ai.vercel.app' : window.location.origin,
+                "X-Title": "CropMind AI",
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    "model": "google/gemini-flash-1.5",
+                    "model": "google/gemini-2.0-flash-exp:free",
                     "messages": conversationHistory
                 })
             });
